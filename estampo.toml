@@ -17,6 +17,11 @@ filaments = ["PLA"]
 [slicer.cura.overrides]
 hole_xy_offset = 0.1
 speed_wall_0 = 30
+adhesion_type = "brim"
+brim_width = 8
+speed_layer_0 = 20
+material_bed_temperature = 60
+cool_fan_full_layer = 4
 
 [[parts]]
 file = "test_plate_2.5mm.step"
@@ -32,6 +37,7 @@ file = "test_plate_4.0mm.step"
 
 [resolve_templates]
 command = "cura-p1s resolve {sliced_dir}/plate.gcode --settings {cura_settings}"
+docker=true
 
 [pack]
 command = "bambox pack {sliced_dir}/plate.gcode -o {output_dir}/plate.gcode.3mf"
