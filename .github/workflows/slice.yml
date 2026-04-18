@@ -1,0 +1,17 @@
+name: Slice
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  slice:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: estampo/estampo/action@v1
+        with:
+          config: estampo.toml
