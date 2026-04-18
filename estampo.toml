@@ -1,7 +1,7 @@
 output_dir = "estampo_output"
 
 [pipeline]
-stages = ["load", "arrange", "plate", "slice", "pack"]
+stages = ["load", "arrange", "plate", "slice", "resolve_templates", "pack"]
 
 [plate]
 size = [256, 256]
@@ -15,15 +15,8 @@ printer = "bambox_p1s"
 filaments = ["PLA"]
 
 [slicer.cura.overrides]
-adhesion_type = "brim"
-brim_width = 8
-speed_layer_0 = 20
-material_bed_temperature = 55
-infill_sparse_density = 12
-infill_pattern = "gyroid"
-wall_line_count = 3
-speed_wall_0 = 30
 hole_xy_offset = 0.1
+speed_wall_0 = 30
 
 [[parts]]
 file = "test_plate_2.5mm.step"
@@ -36,6 +29,9 @@ file = "test_plate_3.5mm.step"
 
 [[parts]]
 file = "test_plate_4.0mm.step"
+
+[resolve_templates]
+command = "cura-p1s resolve {sliced_dir}/plate.gcode --settings {cura_settings}"
 
 [pack]
 command = "bambox pack {sliced_dir}/plate.gcode -o {output_dir}/plate.gcode.3mf"
