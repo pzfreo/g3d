@@ -1,6 +1,6 @@
 {
     "version": 2,
-    "name": "Bambu Lab P1S (bambox)",
+    "name": "Bambu Lab P1S (bambox, AMS)",
     "metadata": {
         "visible": true,
         "author": "estampo",
@@ -16,7 +16,7 @@
     },
     "overrides": {
         "machine_name": {
-            "default_value": "Bambu Lab P1S"
+            "default_value": "Bambu Lab P1S (AMS)"
         },
         "machine_width": {
             "value": 256
@@ -58,45 +58,57 @@
             "value": 500
         },
         "machine_max_feedrate_z": {
-            "value": 15
+            "value": 20
         },
         "machine_max_feedrate_e": {
-            "value": 150
+            "value": 30
+        },
+        "machine_max_acceleration_x": {
+            "value": 20000
+        },
+        "machine_max_acceleration_y": {
+            "value": 20000
+        },
+        "machine_max_acceleration_z": {
+            "value": 500
+        },
+        "machine_max_acceleration_e": {
+            "value": 5000
         },
         "machine_max_jerk_xy": {
-            "default_value": 5000
+            "default_value": 9
         },
         "machine_max_jerk_z": {
-            "default_value": 100
+            "default_value": 3
         },
         "machine_max_jerk_e": {
-            "default_value": 100
+            "default_value": 2.5
         },
         "machine_acceleration": {
             "value": 10000
         },
         "acceleration_print": {
-            "value": 20000
+            "value": 10000
         },
         "acceleration_travel": {
-            "value": 20000
+            "value": 9000
         },
         "acceleration_layer_0": {
-            "value": 2000
+            "value": 500
         },
         "speed_print": {
             "maximum_value_warning": 500,
-            "value": 300
+            "value": 150
         },
         "speed_layer_0": {
             "maximum_value_warning": 500,
-            "value": "speed_print/6"
+            "value": 50
         },
         "relative_extrusion": {
             "value": true
         },
         "retraction_amount": {
-            "value": 0.5
+            "value": 0.8
         },
         "retraction_speed": {
             "value": 30
@@ -105,13 +117,38 @@
             "value": 15
         },
         "retraction_hop": {
-            "value": 0.2
+            "value": 0.4
         },
         "retraction_hop_enabled": {
             "value": true
         },
-        "line_width": {
-            "value": 0.42
+        "retraction_hop_only_when_collides": {
+            "value": true
+        },
+        "retraction_min_travel": {
+            "value": 1
+        },
+        "machine_disallowed_areas": {
+            "default_value": [
+                [
+                    [
+                        -128,
+                        -100
+                    ],
+                    [
+                        -128,
+                        -128
+                    ],
+                    [
+                        -110,
+                        -128
+                    ],
+                    [
+                        -110,
+                        -100
+                    ]
+                ]
+            ]
         },
         "infill_sparse_density": {
             "value": 15
