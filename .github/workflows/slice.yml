@@ -11,7 +11,14 @@ jobs:
       contents: read
       pull-requests: write
     steps:
-      - uses: actions/checkout@v4
-      - uses: estampo/estampo/action@v1
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Generate plates
+        run: |
+          pip install build123d
+          python generate_plates.py
+      - uses: estampo/estampo/action@v0
         with:
           config: estampo.toml
