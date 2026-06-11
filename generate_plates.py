@@ -18,5 +18,11 @@ def generate_test_plates():
         export_step(plate.part, filename)
         print(f"Exported: {filename}")
 
+        # Export as STL for slicing — the estampo cura image cannot
+        # load STEP (no build123d inside the container)
+        stl_filename = f"test_plate_{h}mm.stl"
+        export_stl(plate.part, stl_filename)
+        print(f"Exported: {stl_filename}")
+
 if __name__ == "__main__":
     generate_test_plates()
